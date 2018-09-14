@@ -1,4 +1,4 @@
-# Ampelschaltung
+# Traficcrossing scene
 
 '''
 Szenario:
@@ -12,7 +12,7 @@ import time
 canvas = street.init(width=1920, heigth=1080)
 canvas.background(scene="pretty_street")
 canvas.title("Trafic light simulation")
-        
+
 class Crossing:
     def __init__(self, start_value):
         self.traf0 = canvas.create.traficlight(x=500, y=300)
@@ -27,7 +27,7 @@ class Crossing:
 
         if value in values and trafic_light in trafic_lights:
             pass
-            
+
 
     def get(self):
         pass
@@ -36,4 +36,3 @@ class Crossing:
         pass
 
     def graphics(self):
-        
