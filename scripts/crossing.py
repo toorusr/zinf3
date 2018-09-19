@@ -37,8 +37,18 @@ class TraficLights:
             return 1 # return that something went wrong
 
     # transition function: smooth change of values of traficlights
-    def transition():
-        pass
+    def transition(self):
+        # change visual output of trafic lights to yellow
+        self.change(state=1, trafic_light=0)
+        self.change(state=1, trafic_light=1)
+        self.traf0_state, self.traf1_state = [1, 1] # update the trafs state vars
+        sleep(3000) # rest for 3000ms
+        self.change(state=newState(0), trafic_light=0)
+        self.change(state=newState(1), trafic_light=1)
+        self.traf0_state, self.traf1_state = [0, 2] # update the trafs state vars
+
+    def state(self, traf):
+
 
     # get function: get current value of traficlight
     def get(self, traf):
@@ -49,9 +59,27 @@ class TraficLights:
         self.change(state=self.traf0_state, trafic_light=0) # change visual to start value of car traficlight
         self.change(state=self.traf1_state, trafic_light=1) # change visual to start value of people traficlight
         while True: # starting a infinite loop
-            self.transition()
+            self.transition() # looping the transition function
 
-class
+class Car:
+    def __init__(self):
+        pass
+
+    def drive(self):
+        pass
+
+class People:
+    def __init__(self):
+        pass
+
+    def walk(self):
+        pass
 
 traf = TraficLights() # initializing the traficlights
+car = Car() # intializing the car
+people = People() # initializing the people
+
+# starting the loops
 traf.start()
+car.drive()
+people.walk()
