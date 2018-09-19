@@ -52,7 +52,7 @@ class TraficLights:
 
     # get function: get current value of traficlight
     def get(self, traf):
-        pass
+        return self.traf0_state, self.traf1_state
 
     # start function: traficlight cycle loop
     def start(self):
@@ -62,11 +62,34 @@ class TraficLights:
             self.transition() # looping the transition function
 
 class Car:
-    def __init__(self):
-        pass
+    def __init__(self, trafClass):
+        self.car = canvas.create.car(x=50, y=400)
+        self.car.skin("tesla-car")
+        self.traflight = trafClass
 
     def drive(self):
-        pass
+        self.car.movexto(x=700, speed=4) # move the car to the right screen side with speed 3 (slowly)
+        while True:
+            if self.atTraficlight():
+                if checktrafState() = 1 or 2:
+                    self.car.stop()
+                else:
+                    pass
+            else:
+                pass
+            if self.car.x = 700:
+                break # break out of the loop, when the car is at the end of the street
+
+    def checktrafState(self):
+        trafstate, _ = self.traficlight.get()
+        return trafstate
+
+    def atTraficlight(self):
+        if self.car.x = self.traflight.traf0.x:
+            return True
+        else:
+            return False
+
 
 class People:
     def __init__(self):
@@ -76,8 +99,8 @@ class People:
         pass
 
 traf = TraficLights() # initializing the traficlights
-car = Car() # intializing the car
-people = People() # initializing the people
+car = Car(traf) # intializing the car
+people = People(traf) # initializing the people
 
 # starting the loops
 traf.start()
