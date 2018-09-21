@@ -17,7 +17,7 @@ Attribute | Attributwerte
 --------- | -------------
 pos_x	  | 61
 pos_y     | 107
-rot       | 90 
+rotation  | 90 
 
 # Aufgabe 2
 1. Der Unterschied liegt darin, dass bei einer Anfrage Attribute an ein anderes Objekt übergeben werden, damit dies agieren kann. Bei einem Auftrag bekommt das Objekt von außen eine Anfrage an das Objekt stattfindet und meist auch ein Attribut mitgegeben wird. Beim Sprite 1 handelt es sich um einen Auftrag, da wir diesen bewegen müssen. Beim Sprite 2 wird eine Anfrage gemacht ob dieses berührt wird von Sprite 1. Dann findet ein Auftrag statt, wenn wir das Aussehen von diesem verändern.
@@ -29,4 +29,23 @@ rot       | 90
 Unter objektorientierter Modellierung versteht man die Analyse und Design mit objektorientieren Mitteln und deren Anwendung bei der Entwicklung eines Softwaresystems.
 
 # Aufgabe 3
- 
+1. Fußgänger Ampel Zustandsdiagramm
+ Attribute | Attributwerte | Changes
+ --------- | ------------- | -------
+pos_x      | 400           | false
+pos_y      | 400           | false
+state      | green         | true
+next_state | yellow        | true
+
+3. Fußgänger Objekt
+Attribute | Attributtyp
+--------- | -----------
+pos_x     | float
+pos_y     | float
+rotation  | float
+move      | function
+stop      | function
+
+5. Um änderungen an den Ampeln vornehmen zu können muss man an der Ampelklasse arbeiten. Der Zyklus der Ampelphasen ist in dem `crossing.py` code unter der `TraficLights.transition()` Funktion
+
+6.  
