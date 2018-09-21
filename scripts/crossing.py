@@ -42,7 +42,7 @@ class TraficLights:
         self.change(state=1, trafic_light=0)
         self.change(state=1, trafic_light=1)
         self.traf0_state, self.traf1_state = [1, 1] # update the trafs state vars
-        sleep(3000) # rest for 3000ms
+        sleep(3000) # rest for 3000ms (3 seconds)
         self.change(state=newState(0), trafic_light=0)
         self.change(state=newState(1), trafic_light=1)
         self.traf0_state, self.traf1_state = [0, 2] # update the trafs state vars
@@ -70,15 +70,20 @@ class Car:
     def drive(self):
         self.car.movexto(x=700, speed=4) # move the car to the right screen side with speed 3 (slowly)
         while True:
+            if self.car.stopped and self.checktrafState() == 0 or 1:
+                self.car.movexto(x=700, speed=4)
             if self.atTraficlight():
-                if checktrafState() = 1 or 2:
+                if self.checktrafState() = 1 or 2:
                     self.car.stop()
                 else:
                     pass
             else:
                 pass
-            if self.car.x = 700:
+            if self.car.x == 700:
+                self.car.stop()
                 break # break out of the loop, when the car is at the end of the street
+        # when the car is at the end of the street: output "Stop"
+        canvas.create.popup(position="center", text="STOP")
 
     def checktrafState(self):
         trafstate, _ = self.traficlight.get()
@@ -93,16 +98,41 @@ class Car:
 
 class People:
     def __init__(self):
-        pass
+        self.people = canvas.create.people(x=500, y=50)
+        self.people.skin("happy-group")
+        self.traflight = trafClass
 
     def walk(self):
-        pass
+        self.people.moveyto(y=700, speed=3)
+        while True:
+            if self.atTraficlight():
+                if checktrafState == 1 or 2:
+                    self.people.stop()
+                else:
+                    pass
+            else:
+                pass
+            if self.people.y == 700:
+                self.people.stop()
+                break
+
+
+    def checktrafState(self):
+        _, trafstate = self.traficlight.get()
+        return trafstate
+
+    def atTraficlight(self):
+        if self.people.y == self.traflight.traf1.y:
+            return True
+        else:
+            return False
+
 
 traf = TraficLights() # initializing the traficlights
 car = Car(traf) # intializing the car
 people = People(traf) # initializing the people
 
-# starting the loops
+# starting the loops as threads
 traf.start()
 car.drive()
 people.walk()
