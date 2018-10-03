@@ -30,6 +30,7 @@ Unter objektorientierter Modellierung versteht man die Analyse und Design mit ob
 
 # Aufgabe 3
 1. Fußgänger Ampel Zustandsdiagramm
+
  Attribute | Attributwerte | Changes
  --------- | ------------- | -------
 pos_x      | 400           | false
@@ -38,6 +39,7 @@ state      | green         | true
 next_state | yellow        | true
 
 3. Fußgänger Objekt
+
 Attribute | Attributtyp
 --------- | -----------
 pos_x     | float
